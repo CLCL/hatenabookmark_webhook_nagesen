@@ -20,10 +20,10 @@ ver 0.0.4よりGitHubにて公開。
 
 内容はこんな感じです。
 
-"hatena.ne.jp": 
-  "auth_key": 'はてなブッックマークWeb Hookのキー'
-  "id": '自分のはてなのID'
-  "password": '自分のはてなのpassword'
+    "hatena.ne.jp": 
+      "auth_key": 'はてなブッックマークWeb Hookのキー'
+      "id": '自分のはてなのID'
+      "password": '自分のはてなのpassword'
 
 パスワードが書かれているので管理は厳重に。
 
