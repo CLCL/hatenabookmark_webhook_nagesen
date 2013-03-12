@@ -1,37 +1,37 @@
 #hatenabookmark_webhook_nagesen
 
-hatenabookmark_webhook_nagesen$B$O!"$O$F$J%V%C%/%^!<%/$N(BWebHook$B5!G=$G!"%V%C%/%^!<%/$7$?%(%s%H%j$N:n<T$K$O$F$J%]%$%s%H$r<+F0$GAw?.$9$k!VEj$2A,5!G=!W$r<B8=$9$k(BPerl CGI$B%9%/%j%W%H$G$9!#(B
+hatenabookmark_webhook_nagesenは、はてなブックマークのWebHook機能で、ブックマークしたエントリの作者にはてなポイントを自動で送信する「投げ銭機能」を実現するPerl CGIスクリプトです。
 
-$BEj$2A,5!G=$O!"Bg@N$N$O$F$J%V%C%/%^!<%/$K<BAu$5$l$F$$$?5!G=$G$7$?$,!"$O$F$J%V%C%/%^!<%/%j%K%e!<%"%k$G%*%_%C%H$5$l$F$7$^$C$?$b$N$G$9!#(B
+投げ銭機能は、大昔のはてなブックマークに実装されていた機能でしたが、はてなブックマークリニューアルでオミットされてしまったものです。
 
-$B$=$N8e!"$O$F$J%V%C%/%^!<%/$K(BWebHook$B5!G=$,<BAu$5$l!"%V%C%/%^!<%/A`:n$4$H$K(BHTTP$B%"%/%;%9$rH/@8$9$k;EAH$_$,<BAu$5$l$^$7$?$N$G!"$3$N%9%/%j%W%H$r@_CV$9$k$3$H$G!"Ej$2A,5!G=$rDI2C$9$k$3$H$,=PMh$^$9!#(B
+その後、はてなブックマークにWebHook機能が実装され、ブックマーク操作ごとにHTTPアクセスを発生する仕組みが実装されましたので、このスクリプトを設置することで、投げ銭機能を追加することが出来ます。
 
-ver 0.0.4$B$h$j(BGitHub$B$K$F8x3+!#(B
+ver 0.0.4よりGitHubにて公開。
 
-* $B:G=i:n$C$?;~$N%(%s%H%j(B http://blog.dtpwiki.jp/dtp/2009/06/web-hook-645b.html
-* ver 0.0.3$B$^$G(B http://svn.coderepos.org/share/lang/perl/misc/hatenabookmark_webhook_nagesen/
-* ver 0.0.4$B$r:n$C$?;~$N%(%s%H%j(B http://cl.hatenablog.com/entry/hatenabookmark_webhook_nagesen_004
+* 最初作った時のエントリ http://blog.dtpwiki.jp/dtp/2009/06/web-hook-645b.html
+* ver 0.0.3まで http://svn.coderepos.org/share/lang/perl/misc/hatenabookmark_webhook_nagesen/
+* ver 0.0.4を作った時のエントリ http://cl.hatenablog.com/entry/hatenabookmark_webhook_nagesen_004
 
 ##files
 
-$B@_CV<T$,<+J,$G=`Hw$7=q$-49$($kI,MW$,$"$k%U%!%$%k$O0J2<$NDL$j$G$9!#(B
+設置者が自分で準備し書き換える必要があるファイルは以下の通りです。
 
-* ~apache/.pit/default.yaml : $B$O$F$J%V%C%/%^!<%/(BWebHook API$B$N%-!<$H!"%Q%9%o!<%I$r5-O?$7$^$9!#(Bapache$B$N%f!<%6$,JQ99$5$l$F$$$k>l9g$O!"@_CV>l=j$,JQ$o$j$^$9!#(B
+* ~apache/.pit/default.yaml : はてなブックマークWebHook APIのキーと、パスワードを記録します。apacheのユーザが変更されている場合は、設置場所が変わります。
 
-$BFbMF$O$3$s$J46$8$G$9!#(B
+内容はこんな感じです。
 
 "hatena.ne.jp": 
-  "auth_key": '$B$O$F$J%V%C%C%/%^!<%/(BWeb Hook$B$N%-!<(B'
-  "id": '$B<+J,$N$O$F$J$N(BID'
-  "password": '$B<+J,$N$O$F$J$N(Bpassword'
+  "auth_key": 'はてなブッックマークWeb Hookのキー'
+  "id": '自分のはてなのID'
+  "password": '自分のはてなのpassword'
 
-$B%Q%9%o!<%I$,=q$+$l$F$$$k$N$G4IM}$O87=E$K!#(B
+パスワードが書かれているので管理は厳重に。
 
-CGI$B%9%/%j%W%H$O!"(BWeb$B$+$i%"%/%;%9$G$-$k$H$3$m$K@_CV$7$F$/$@$5$$!#>\$7$/$O!"$O$F$J%V%C%/%^!<%/(BWebHook$B$N%Z!<%8(B http://hatena.g.hatena.ne.jp/hatenabookmark/20090603/1244012770 $B$r;2>H$N$3$H!#(B
+CGIスクリプトは、Webからアクセスできるところに設置してください。詳しくは、はてなブックマークWebHookのページ http://hatena.g.hatena.ne.jp/hatenabookmark/20090603/1244012770 を参照のこと。
 
 ##changes
 
-* 2013-02-26 ver 0.0.4 $B%]%$%s%HAw?.%Z!<%8JQ99$KBP1~(B
-* 2012-01-26 ver 0.0.3 $B$O$F$J%V%m%0BP1~(B
-* 2009-10-03 ver 0.0.2 $B:G?7$N(BMech$B$G$bF0$/$h$&$K(B
-* 2009-06-07 ver 0.0.1 $B%U%!!<%9%H%]%9%H(B
+* 2013-02-26 ver 0.0.4 ポイント送信ページ変更に対応
+* 2012-01-26 ver 0.0.3 はてなブログ対応
+* 2009-10-03 ver 0.0.2 最新のMechでも動くように
+* 2009-06-07 ver 0.0.1 ファーストポスト
